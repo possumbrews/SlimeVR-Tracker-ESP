@@ -154,6 +154,7 @@ IMU_DESC_ENTRY(IMU_BMP160, PRIMARY_IMU_ADDRESS_ONE, IMU_ROTATION, PIN_IMU_SCL, P
   #define PIN_IMU_INT_2 13
   #define PIN_BATTERY_LEVEL 17
   #define LED_PIN 200
+  //----- Added Defines -----
   #define LED_INVERTED false
   #define LED_2_PIN 4
   #define LED_2_INVERTED false
