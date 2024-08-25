@@ -30,6 +30,7 @@
 #include "serial/serialcommands.h"
 #include "batterymonitor.h"
 #include "logging/Logger.h"
+#include "colliebutton.h"
 
 Timer<> globalTimer;
 SlimeVR::Logging::Logger logger("SlimeVR");
@@ -77,6 +78,10 @@ void setup()
 
     // join I2C bus
 
+#if COLLIE_BUTTON == true
+    collieButton::setup();
+#endif
+
 #if ESP32
     // For some unknown reason the I2C seem to be open on ESP32-C3 by default. Let's just close it before opening it again. (The ESP32-C3 only has 1 I2C.)
     Wire.end();
@@ -118,6 +123,11 @@ void loop()
     sensorManager.update();
     battery.Loop();
     ledManager.update();
+
+#if COLLIE_BUTTON == true
+    collieButton::update();
+#endif
+
 #ifdef TARGET_LOOPTIME_MICROS
     long elapsed = (micros() - loopTime);
     if (elapsed < TARGET_LOOPTIME_MICROS)
