@@ -54,9 +54,9 @@ namespace collieButton {
         pinMode(BUTTON_PIN, INPUT_PULLUP);                     // Sets button pin as input
         digitalWrite(BUTTON_PIN, HIGH);                        // Holds button power on
         pinMode(LED_PIN, OUTPUT);                              // Sets LED pin as output
-        digitalWrite(LED_PIN, HIGH);                           // Turns the LED off
+    //    digitalWrite(LED_PIN, HIGH);                           // Turns the LED OFF
         pinMode(LED_2_PIN, OUTPUT);                            // Sets LED pin as output
-        digitalWrite(LED_2_PIN, LOW);                          // Turns the LED ???
+        digitalWrite(LED_2_PIN, LOW);                          // Turns the power LED ON
     }
 
     void update() {        // In main's loop, this is the colliebutton::update() we call!

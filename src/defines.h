@@ -56,7 +56,7 @@ IMU_DESC_ENTRY(IMU_BMP160, PRIMARY_IMU_ADDRESS_ONE, IMU_ROTATION, PIN_IMU_SCL, P
 //   BAT_EXTERNAL for ADC pin,
 //   BAT_INTERNAL for internal - can detect only low battery,
 //   BAT_MCP3021 for external ADC connected over I2C
-#define BATTERY_MONITOR BAT_EXTERNAL
+//   #define BATTERY_MONITOR BAT_EXTERNAL
 
 // BAT_EXTERNAL definition override
 // D1 Mini boards with ESP8266 have internal resistors. For these boards you only have to adjust BATTERY_SHIELD_RESISTANCE.
@@ -150,17 +150,14 @@ IMU_DESC_ENTRY(IMU_BMP160, PRIMARY_IMU_ADDRESS_ONE, IMU_ROTATION, PIN_IMU_SCL, P
 #elif BOARD == BOARD_CUSTOM
   #define PIN_IMU_SDA 26
   #define PIN_IMU_SCL 27
-  #define PIN_IMU_INT 38
-  #define PIN_IMU_INT_2 37
-  #define PIN_BATTERY_LEVEL 255
+  #define PIN_IMU_INT 14
+  #define PIN_IMU_INT_2 38
+  #define PIN_BATTERY_LEVEL A0
   #define LED_PIN 2
-  //----- Added Defines -----
   #define LED_INVERTED true
   #define LED_2_PIN 4
-  #define LED_2_INVERTED true
+  #define LED_2_INVERTED false
   #define BUTTON_PIN 25
-  // #define COLLIE_BUTTON true
-  // Define pins by the examples above
 #elif BOARD == BOARD_WROOM32
   #define PIN_IMU_SDA 21
   #define PIN_IMU_SCL 22

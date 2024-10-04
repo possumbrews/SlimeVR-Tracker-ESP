@@ -69,6 +69,13 @@ void setup()
     statusManager.setStatus(SlimeVR::Status::LOADING, true);
 
     ledManager.setup();
+
+#ifdef BUTTON_PIN
+    #if BUTTON_PIN > 0 && BUTTON_PIN < 255
+        collieButton::setup();
+    #endif
+#endif
+
     configuration.setup();
 
     SerialCommands::setUp();
@@ -78,12 +85,6 @@ void setup()
     // If some IMU turned out to be broken by this, check needs to be re-added.
 
     // join I2C bus
-
-#ifdef BUTTON_PIN
-    #if BUTTON_PIN > 0 && BUTTON_PIN < 255
-        collieButton::setup();
-    #endif
-#endif
 
 #if ESP32
     // For some unknown reason the I2C seem to be open on ESP32-C3 by default. Let's just close it before opening it again. (The ESP32-C3 only has 1 I2C.)
@@ -129,7 +130,7 @@ void loop()
 
 #ifdef BUTTON_PIN
     #if BUTTON_PIN > 0 && BUTTON_PIN < 255
-        collieButton::setup();
+        collieButton::update();
     #endif
 #endif
 
