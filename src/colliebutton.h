@@ -20,7 +20,8 @@
 // #if COLLIE_BUTTON == true
 //     collieButton::update();
 // #endif
-
+#include <Arduino.h>
+#include "GlobalVars.h"
 
 // in colliebutton.h, a brand new file:
   #ifndef COLLIEBUTTON_H_

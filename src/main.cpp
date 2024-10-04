@@ -31,6 +31,7 @@
 #include "batterymonitor.h"
 #include "logging/Logger.h"
 #include "colliebutton.h"
+#include "defines.h"
 
 Timer<> globalTimer;
 SlimeVR::Logging::Logger logger("SlimeVR");
@@ -78,8 +79,10 @@ void setup()
 
     // join I2C bus
 
-#if COLLIE_BUTTON == true
-    collieButton::setup();
+#ifdef BUTTON_PIN
+    #if BUTTON_PIN > 0 && BUTTON_PIN < 255
+        collieButton::setup();
+    #endif
 #endif
 
 #if ESP32
@@ -124,8 +127,10 @@ void loop()
     battery.Loop();
     ledManager.update();
 
-#if COLLIE_BUTTON == true
-    collieButton::update();
+#ifdef BUTTON_PIN
+    #if BUTTON_PIN > 0 && BUTTON_PIN < 255
+        collieButton::setup();
+    #endif
 #endif
 
 #ifdef TARGET_LOOPTIME_MICROS

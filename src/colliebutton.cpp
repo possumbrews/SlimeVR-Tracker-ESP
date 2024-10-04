@@ -37,9 +37,9 @@
 
 
 // in colliebutton.cpp, a brand new file:
-#include <Arduino.h>
-#include "defines.h"
+
 #include "colliebutton.h"
+
 
 int currentTime = 10000;
 
