@@ -65,7 +65,10 @@ namespace SlimeVR
             template <typename ImuType>
             std::unique_ptr<Sensor> buildSensor(uint8_t sensorID, uint8_t addrSuppl, float rotation, uint8_t sclPin, uint8_t sdaPin, bool optional = false, int extraParam = 0)
             {
-                const uint8_t address = ImuType::Address + addrSuppl;
+                uint8_t address = ImuType::Address + addrSuppl;
+                if (addrSuppl > 1) {
+                    address = addrSuppl;
+                }
                 m_Logger.trace("Building IMU with: id=%d,\n\
                                 address=0x%02X, rotation=%f,\n\
                                 sclPin=%d, sdaPin=%d, extraParam=%d, optional=%d",
